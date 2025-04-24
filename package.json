@@ -1,0 +1,11 @@
+{
+  "name": "infinite-loop-site",
+  "version": "1.0.0",
+  "description": "Infinite Loop website",
+  "scripts": {
+    "start": "live-server public"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+} 

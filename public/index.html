@@ -25,15 +25,9 @@
     <section>
       <h2 id="contact-us-title"></h2>
       <form id="contact-form" class="contact-form" method="POST" action="#">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="first-name" id="label-first-name"></label><br>
-            <input type="text" id="first-name" name="first-name">
-          </div>
-          <div class="form-group">
-            <label for="last-name" id="label-last-name"></label><br>
-            <input type="text" id="last-name" name="last-name">
-          </div>
+        <div class="form-group">
+          <label for="name" id="label-name"></label><br>
+          <input type="text" id="name" name="name" required>
         </div>
         <div class="form-group">
           <label for="email" id="label-email"></label><br>
@@ -43,7 +37,6 @@
           <label for="question" id="label-question"></label><br>
           <textarea id="question" name="question" rows="4" required></textarea>
         </div>
-        <input type="hidden" name="name" id="full-name">
         <input type="hidden" name="message" id="full-message">
         <button type="submit" class="submit-btn" id="submit-btn"></button>
       </form>
@@ -85,8 +78,7 @@
         document.getElementById('about-title').textContent = texts.about_title;
         document.getElementById('about-description').textContent = texts.about_description;
         document.getElementById('contact-us-title').textContent = texts.contact_us;
-        document.getElementById('label-first-name').textContent = texts.first_name;
-        document.getElementById('label-last-name').textContent = texts.last_name;
+        document.getElementById('label-name').textContent = texts.name;
         document.getElementById('label-email').innerHTML = `<span style='color: #d32f2f;'>*</span> ${texts.email_address}`;
         document.getElementById('label-question').innerHTML = `<span style='color: #d32f2f;'>*</span> ${texts.leave_message}`;
         document.getElementById('submit-btn').textContent = texts.submit;
@@ -94,10 +86,7 @@
     emailjs.init(window.CONFIG.EMAILJS_PUBLIC_KEY);
     document.getElementById('contact-form').addEventListener('submit', function(event) {
       event.preventDefault();
-      // Set hidden fields for EmailJS template
-      var firstName = document.getElementById('first-name').value.trim();
-      var lastName = document.getElementById('last-name').value.trim();
-      document.getElementById('full-name').value = (firstName + ' ' + lastName).trim();
+      // Set hidden field for EmailJS template
       document.getElementById('full-message').value = document.getElementById('question').value;
       emailjs.sendForm(
         window.CONFIG.EMAILJS_SERVICE_ID,
@@ -107,11 +96,9 @@
       .then(function() {
         alert(localizedTexts.success_message);
         // Clear form fields
-        document.getElementById('first-name').value = '';
-        document.getElementById('last-name').value = '';
+        document.getElementById('name').value = '';
         document.getElementById('email').value = '';
         document.getElementById('question').value = '';
-        document.getElementById('full-name').value = '';
         document.getElementById('full-message').value = '';
       }, function(error) {
         alert(localizedTexts.error_message);

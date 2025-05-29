@@ -17,4 +17,7 @@ package-lock.json
 # Build files
 dist/
 build/
-*.log 
+*.log
+
+# Public config file
+/public/config.js 

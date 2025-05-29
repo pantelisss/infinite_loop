@@ -1,0 +1,12 @@
+{
+  "about_title": "About Us",
+  "about_description": "We are a software company dedicated to building modern, efficient, and scalable mobile applications.",
+  "contact_us": "Contact Us",
+  "first_name": "First Name",
+  "last_name": "Last Name",
+  "email_address": "Email Address",
+  "leave_message": "Leave your message",
+  "submit": "SUBMIT",
+  "success_message": "Many thanks for contacting us! We will get back to you as soon as possible.",
+  "error_message": "Failed to send message. Please try again."
+} 

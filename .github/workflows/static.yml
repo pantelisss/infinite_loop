@@ -33,6 +33,13 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v5
+      - name: Generate config.js
+        run: |
+          echo "window.CONFIG = {" > public/config.js
+          echo "  EMAILJS_PUBLIC_KEY: '${{ secrets.EMAILJS_PUBLIC_KEY }}'," >> public/config.js
+          echo "  EMAILJS_SERVICE_ID: '${{ secrets.EMAILJS_SERVICE_ID }}'," >> public/config.js
+          echo "  EMAILJS_TEMPLATE_ID: '${{ secrets.EMAILJS_TEMPLATE_ID }}'" >> public/config.js
+          echo "};" >> public/config.js
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

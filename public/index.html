@@ -50,8 +50,6 @@
           title="LinkedIn"><i class="fab fa-linkedin"></i></a>
         <a href="https://github.com/pantelisss" target="_blank" rel="noopener noreferrer" title="GitHub"><i
             class="fab fa-github"></i></a>
-        <a href="mailto:giazitsispantelis@gmail.com" target="_blank" rel="noopener noreferrer" title="Email"><i
-            class="fas fa-envelope"></i></a>
       </div>
       <div class="founder">
         <h4>Manolis Zervos</h4>
@@ -59,12 +57,15 @@
           title="LinkedIn"><i class="fab fa-linkedin"></i></a>
         <a href="https://github.com/manoszer" target="_blank" rel="noopener noreferrer" title="GitHub"><i
             class="fab fa-github"></i></a>
-        <a href="mailto:manoliszervos86@gmail.com" target="_blank" rel="noopener noreferrer" title="Email"><i
-            class="fas fa-envelope"></i></a>
       </div>
     </div>
+    <div class="company">
+      <p class="company-name">INFINITE LOOP O.E.</p>
+      <p><a href="mailto:info@infinite-loop.gr">info@infinite-loop.gr</a></p>
+      <p><span id="label-gemi">G.E.MI. No.</span>: 169636209000 &middot; <span id="label-tax-id">Tax ID</span>: 802085418</p>
+    </div>
     <div class="copyright">
-      &copy; 2025 Infinite Loop. All rights reserved.
+      &copy; <span id="year">2026</span> INFINITE LOOP O.E. <span id="rights">All rights reserved.</span>
     </div>
   </footer>
   <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
@@ -82,7 +83,11 @@
         document.getElementById('label-email').innerHTML = `<span style='color: #d32f2f;'>*</span> ${texts.email_address}`;
         document.getElementById('label-question').innerHTML = `<span style='color: #d32f2f;'>*</span> ${texts.leave_message}`;
         document.getElementById('submit-btn').textContent = texts.submit;
+        document.getElementById('label-gemi').textContent = texts.gemi_number;
+        document.getElementById('label-tax-id').textContent = texts.tax_id;
+        document.getElementById('rights').textContent = texts.all_rights_reserved;
       });
+    document.getElementById('year').textContent = new Date().getFullYear();
     emailjs.init(window.CONFIG.EMAILJS_PUBLIC_KEY);
     document.getElementById('contact-form').addEventListener('submit', function(event) {
       event.preventDefault();

@@ -115,6 +115,23 @@ footer {
   margin: 0.5rem 0;
 }
 
+.company p {
+  margin: 0.25rem 0;
+}
+
+.company-name {
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.company a {
+  color: #1a1a1a;
+}
+
+.company a:hover {
+  color: #0077b5;
+}
+
 .copyright {
   margin-top: 1rem;
   font-size: 0.8rem;

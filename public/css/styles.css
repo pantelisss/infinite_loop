@@ -186,3 +186,16 @@ footer {
 .contact-form span[style*='color: #d32f2f;'] {
   margin-right: 0.2rem;
 } 
+/* --- content sections (Nov 2026) --- */
+header { flex-wrap: wrap; }
+header nav { margin-left: auto; display: flex; gap: 1.2rem; }
+header nav a { color: #fff; text-decoration: none; opacity: .85; font-weight: 600; }
+header nav a:hover { opacity: 1; }
+.hero .tagline { font-size: 1.4rem; font-weight: 600; color: #1a1a1a; margin-bottom: .5rem; }
+.cards { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+.cards li, .product { background: #fff; border: 1px solid #e6e6e6; border-radius: 12px; padding: 1rem 1.2rem; }
+.cards h3, .product h3 { margin: .2rem 0 .4rem; color: #1a1a1a; }
+.badge { font-size: .75rem; font-weight: 600; background: #ECE8FB; color: #4B3AA8; border-radius: 999px; padding: .15rem .6rem; vertical-align: middle; }
+.contact-details { line-height: 1.6; }
+footer .address { margin: .2rem 0; }
+@media (max-width: 600px) { header nav { margin-left: 0; width: 100%; } }

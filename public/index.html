@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Infinite Loop</title>
+  <title>Infinite Loop O.E. – Mobile apps for iOS and Android</title>
+  <meta name="description" content="INFINITE LOOP O.E. designs and builds native mobile apps for iOS and Android, and creates its own consumer apps such as Paramythi.">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="css/styles.css">
@@ -15,30 +16,73 @@
     <img src="inf_white.svg" alt="Infinite Loop Logo" class="logo">
     <div class="header-content">
       <h1>Infinite Loop</h1>
+      <p>Mobile apps for iOS and Android</p>
     </div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#products">Products</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
   <main>
-    <section>
-      <h2 id="about-title"></h2>
-      <p id="about-description"></p>
+    <section class="hero">
+      <p class="tagline">We design and build mobile apps for iOS and Android.</p>
+      <p>INFINITE LOOP O.E. is a software company based in Greece. We create our own consumer apps and help other
+        companies turn ideas into reliable, well-designed mobile products.</p>
     </section>
-    <section>
-      <h2 id="contact-us-title"></h2>
+
+    <section id="about">
+      <h2>About us</h2>
+      <p>Infinite Loop was founded by mobile engineers Pantelis Giazitsis and Manolis Zervos.</p>
+      <p>We focus on native technologies (Swift / SwiftUI and Kotlin / Jetpack Compose), cloud back-ends and
+        privacy-friendly use of AI, with special care for families and children.</p>
+    </section>
+
+    <section id="services">
+      <h2>What we do</h2>
+      <ul class="cards">
+        <li><h3>Native mobile apps</h3><p>iOS and Android apps, from the first idea and design to the App Store and Google Play.</p></li>
+        <li><h3>Cloud back-ends</h3><p>Secure, scalable back-ends on Google Cloud and Firebase, with EU data residency.</p></li>
+        <li><h3>AI-powered features</h3><p>Responsible use of modern AI for text, images and voice, with privacy by design.</p></li>
+      </ul>
+    </section>
+
+    <section id="products">
+      <h2>Our products</h2>
+      <div class="product">
+        <h3>Paramythi <span class="badge">Coming 2027</span></h3>
+        <p>Paramythi (Greek for "fairy tale") turns a child's drawing into a personalised, illustrated bedtime story,
+          narrated in Greek. The child is the hero and the characters of their own drawing come alive on every page.
+          Parents can also record their own voice to read the story.</p>
+        <p>The app is designed for parents, with strict privacy for children's data: drawing photos are deleted after the
+          story is created, data is stored in the EU and is never used to train AI models.</p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact us</h2>
+      <p class="contact-details">
+        <strong>INFINITE LOOP O.E.</strong><br>
+        <span class="address">Mylopotamos, Kythira, Greece</span><br>
+        Phone: <a href="tel:+306948045683">+30 694 804 5683</a><br>
+        Email: <a href="mailto:info@infinite-loop.gr">info@infinite-loop.gr</a>
+      </p>
       <form id="contact-form" class="contact-form" method="POST" action="#">
         <div class="form-group">
-          <label for="name" id="label-name"></label><br>
+          <label for="name" id="label-name">Name</label><br>
           <input type="text" id="name" name="name" required>
         </div>
         <div class="form-group">
-          <label for="email" id="label-email"></label><br>
+          <label for="email" id="label-email"><span style="color: #d32f2f;">*</span> Email Address</label><br>
           <input type="email" id="email" name="email" required>
         </div>
         <div class="form-group">
-          <label for="question" id="label-question"></label><br>
+          <label for="question" id="label-question"><span style="color: #d32f2f;">*</span> Leave your message</label><br>
           <textarea id="question" name="question" rows="4" required></textarea>
         </div>
-        <input type="hidden" name="message" id="full-message">
-        <button type="submit" class="submit-btn" id="submit-btn"></button>
+        <input type="text" id="honey" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+        <button type="submit" class="submit-btn" id="submit-btn">SUBMIT</button>
       </form>
     </section>
   </main>
@@ -62,52 +106,51 @@
     <div class="company">
       <p class="company-name">INFINITE LOOP O.E.</p>
       <p><a href="mailto:info@infinite-loop.gr">info@infinite-loop.gr</a></p>
+      <p class="address">Mylopotamos, Kythira, Greece</p>
       <p><span id="label-gemi">G.E.MI. No.</span>: 169636209000 &middot; <span id="label-tax-id">Tax ID</span>: 802085418</p>
     </div>
     <div class="copyright">
       &copy; <span id="year">2026</span> INFINITE LOOP O.E. <span id="rights">All rights reserved.</span>
+      &middot; <a href="privacy.html">Privacy Policy</a>
     </div>
   </footer>
-  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-  <script src="config.js"></script>
   <script>
-    let localizedTexts = {};
-    fetch('locales/en.json')
-      .then(response => response.json())
-      .then(texts => {
-        localizedTexts = texts;
-        document.getElementById('about-title').textContent = texts.about_title;
-        document.getElementById('about-description').textContent = texts.about_description;
-        document.getElementById('contact-us-title').textContent = texts.contact_us;
-        document.getElementById('label-name').textContent = texts.name;
-        document.getElementById('label-email').innerHTML = `<span style='color: #d32f2f;'>*</span> ${texts.email_address}`;
-        document.getElementById('label-question').innerHTML = `<span style='color: #d32f2f;'>*</span> ${texts.leave_message}`;
-        document.getElementById('submit-btn').textContent = texts.submit;
-        document.getElementById('label-gemi').textContent = texts.gemi_number;
-        document.getElementById('label-tax-id').textContent = texts.tax_id;
-        document.getElementById('rights').textContent = texts.all_rights_reserved;
-      });
+    // Η φόρμα στέλνει το μήνυμα στο info@infinite-loop.gr μέσω της υπηρεσίας FormSubmit (χωρίς δικό μας server).
+    // Την πρώτη φορά η FormSubmit στέλνει email επιβεβαίωσης στο info@: πατάμε «Activate» μία φορά.
+    let localizedTexts = {
+      success_message: "Many thanks for contacting us! We will get back to you as soon as possible.",
+      error_message: "Failed to send message. Please try again or email us at info@infinite-loop.gr."
+    };
+    fetch('locales/en.json').then(r => r.json()).then(t => { localizedTexts = t; }).catch(() => {});
     document.getElementById('year').textContent = new Date().getFullYear();
-    emailjs.init(window.CONFIG.EMAILJS_PUBLIC_KEY);
-    document.getElementById('contact-form').addEventListener('submit', function(event) {
+
+    const form = document.getElementById('contact-form');
+    form.addEventListener('submit', async function (event) {
       event.preventDefault();
-      // Set hidden field for EmailJS template
-      document.getElementById('full-message').value = document.getElementById('question').value;
-      emailjs.sendForm(
-        window.CONFIG.EMAILJS_SERVICE_ID,
-        window.CONFIG.EMAILJS_TEMPLATE_ID,
-        this
-      )
-      .then(function() {
+      const btn = document.getElementById('submit-btn');
+      btn.disabled = true;
+      try {
+        const res = await fetch('https://formsubmit.co/ajax/info@infinite-loop.gr', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            message: document.getElementById('question').value,
+            _subject: 'New message from infinite-loop.gr',
+            _template: 'table',
+            _honey: document.getElementById('honey').value
+          })
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok || data.success === 'false' || data.success === false) throw new Error(data.message || res.status);
         alert(localizedTexts.success_message);
-        // Clear form fields
-        document.getElementById('name').value = '';
-        document.getElementById('email').value = '';
-        document.getElementById('question').value = '';
-        document.getElementById('full-message').value = '';
-      }, function(error) {
+        form.reset();
+      } catch (e) {
         alert(localizedTexts.error_message);
-      });
+      } finally {
+        btn.disabled = false;
+      }
     });
   </script>
 </body>

@@ -143,10 +143,14 @@
           })
         });
         const data = await res.json().catch(() => ({}));
-        if (!res.ok || data.success === 'false' || data.success === false) throw new Error(data.message || res.status);
+        const msg = String(data.message || '');
+        // Πριν την πρώτη ενεργοποίηση η FormSubmit απαντά «needs Activation» και στέλνει email στο info@: δεν είναι σφάλμα του επισκέπτη
+        const needsActivation = /activat/i.test(msg);
+        if (!needsActivation && (!res.ok || data.success === 'false' || data.success === false)) throw new Error(msg || res.status);
         alert(localizedTexts.success_message);
         form.reset();
       } catch (e) {
+        console.error('Contact form error:', e);
         alert(localizedTexts.error_message);
       } finally {
         btn.disabled = false;
